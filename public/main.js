@@ -8,7 +8,7 @@ function addAppointment() {
 
   if (username && email) {
       var appointmentData = { username: username, email: email };
-      axios.post('http://localhost:3000/api/users', appointmentData)
+      axios.post('http://52.90.231.173:3000/api/users', appointmentData)
           .then(function (response) {
               console.log(response.data);
               document.getElementById('username').value = '';
@@ -22,7 +22,7 @@ function addAppointment() {
 }
 
 function fetchAppointments() {
-  axios.get('http://localhost:3000/api/users')
+  axios.get('http://52.90.231.173:3000/api/users')
       .then(function (response) {
           displayAppointments(response.data);
       })
@@ -46,7 +46,7 @@ function displayAppointments(appointments) {
 }
 
 function deleteUser(id) {
-  axios.delete(`http://localhost:3000/api/users/${id}`)
+  axios.delete(`http://52.90.231.173:3000/api/users/${id}`)
       .then(function (response) {
           console.log('User deleted:', response.data);
           fetchAppointments();
